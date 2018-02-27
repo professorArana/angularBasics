@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {UserComponent} from './components/user/user.component';
 
 import {SquaddataService} from './services/squaddata.service';
+import {ImageapiService} from './services/imageapi.service';
 import { AboutComponent } from './components/about/about.component';
 
 const appRoutes: Routes = [
@@ -27,7 +28,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [SquaddataService],
+  providers: [SquaddataService, ImageapiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

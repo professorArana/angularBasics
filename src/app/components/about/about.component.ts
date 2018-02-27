@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {environment} from 'environments/environment';
+import {Component, OnInit} from '@angular/core';
+import {ImageapiService} from '../../services/imageapi.service';
 
 @Component({
   selector: 'app-about',
@@ -9,38 +8,39 @@ import {environment} from 'environments/environment';
 })
 export class AboutComponent implements OnInit {
 
-  private gettyApikey = environment.gettyKey;
-  private gettySecret = environment.gettySecret;
-  private gettyToken: string;
-  private myResult: GettyResult;
-  gettyUri: string;
-  
-  constructor(protected httpClient: HttpClient) { }
+  gettyImageUri: string;
+  gettyResult: any;
+  gifyResult: any;
+  gifyImageUri: string;
+
+  constructor(private imageApi: ImageapiService) {}
 
   ngOnInit() {
-    this.getGetty();
-  }
-
-  getGetty() {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Api-Key': this.gettyApikey
-      })
-    };
-    const newUrl2 = 'https://api.gettyimages.com/v3/search/images?phrase=kittens';
-    const imageSelect = Math.floor((Math.random() * 30));
-    this.httpClient.get<GettyResult>(newUrl2, httpOptions).subscribe(
+    const randomIndex = Math.floor((Math.random() * 30));
+    this.imageApi.getGettyImages().subscribe(
       data => {
-
-        this.myResult = data;
-        console.log('uri ' + this.myResult.images[imageSelect].display_sizes[0].uri);
-        this.gettyUri = this.myResult.images[imageSelect].display_sizes[0].uri;
+        this.gettyResult = data;
+        this.gettyImageUri = this.gettyResult.images[randomIndex].display_sizes[0].uri;
       }
     );
 
+    this.imageApi.getGiffyImage().subscribe(
+      data => {
+        this.gifyResult = data;
+        this.gifyImageUri = this.gifyResult.data.images.downsized.url;
+        console.log(this.gifyImageUri);
+      }
+    );
   }
-  
+
+}
+
+interface GifyResult {
+  data: GifyData;
+}
+
+interface GifyData {
+  embedUrl: string;
 }
 
 interface GettyResult {
