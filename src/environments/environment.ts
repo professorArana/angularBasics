@@ -5,6 +5,5 @@
 
 export const environment = {
   production: false,
-  gettyKey: 'ujzudkt5pqb3unxbbdwcbu5m',
-  gifyKey: 'ANod6sTxKACsGjz0oVrfFquzrETBNxLr'
+  gettyKey: 'ujzudkt5pqb3unxbbdwcbu5m'
 };

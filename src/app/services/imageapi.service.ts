@@ -19,7 +19,7 @@ export class ImageapiService {
   }
 
   getGiffyImage() {
-    const gifyUrl = 'https://api.giphy.com/v1/gifs/random?api_key=' + environment.gifyKey + '&tag=anime&rating=G';
+    const gifyUrl = 'https://microservicebasics.herokuapp.com/anime';
     return this.httpClient.get(gifyUrl);
   }
 }
