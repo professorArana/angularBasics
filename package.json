@@ -13,11 +13,10 @@
 	},
 	"private": true,
 	"dependencies": {
-		"@angular/cli": "1.6.8",
-		"@angular/compiler-cli": "^5.2.0",
 		"@angular/animations": "^5.2.0",
 		"@angular/common": "^5.2.0",
 		"@angular/compiler": "^5.2.0",
+		"@angular/compiler-cli": "^5.2.0",
 		"@angular/core": "^5.2.0",
 		"@angular/forms": "^5.2.0",
 		"@angular/http": "^5.2.0",
@@ -25,13 +24,13 @@
 		"@angular/platform-browser-dynamic": "^5.2.0",
 		"@angular/router": "^5.2.0",
 		"core-js": "^2.4.1",
-		"npm": "^5.6.0",
+		"npm": "^5.8.0",
 		"rxjs": "^5.5.6",
-		"zone.js": "^0.8.19",
-		"typescript": "~2.5.3"
+		"typescript": "~2.5.3",
+		"zone.js": "^0.8.19"
 	},
 	"devDependencies": {
-		"@angular/cli": "1.6.8",
+		"@angular/cli": "^1.7.3",
 		"@angular/compiler-cli": "^5.2.0",
 		"@angular/language-service": "^5.2.0",
 		"@types/jasmine": "~2.8.3",
@@ -52,7 +51,7 @@
 		"typescript": "~2.5.3"
 	},
 	"engines": {
-    "node": "8.9.4",
-    "npm": "5.6.0"
-  }
+		"node": "8.9.4",
+		"npm": "5.6.0"
+	}
 }
